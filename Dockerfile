@@ -12,9 +12,9 @@ MAINTAINER Philipp Heuer <docker@philippheuer.me>
 # Environment Configuration
 ############################################################
 
-ENV CI_SERVER_URL=unset \
-    RUNNER_NAME=unset \
-	REGISTRATION_TOKEN=unset \
+ENV CI_SERVER_URL='http://YOUR_GITLAB_INSTANCE/ci' \
+    RUNNER_NAME='aio-runner' \
+	REGISTRATION_TOKEN='' \
 	REGISTER_NON_INTERACTIVE=true \
 	RUNNER_EXECUTOR=shell
 
@@ -28,13 +28,9 @@ COPY entrypoint.sh /sbin/entrypoint.sh
 COPY exitpoint.sh /sbin/exitpoint.sh
 
 # Install build only packages. These will be removed after installing the packages. Notes:
-#   * git: to ease up clones of repos
-#   * curl: to allow downloading files using curl
 #   * wget: download files from the web
 #   * ca-certificates: for SSL verification
 ENV BUILD_PACKAGES="\
-  git \
-  curl \
   wget \
   ca-certificates \
 "
