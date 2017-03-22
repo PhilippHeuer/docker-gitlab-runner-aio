@@ -10,17 +10,19 @@ trap "/sbin/exitpoint.sh" SIGHUP SIGINT SIGTERM
 ############################################################
 # Register Runner
 ############################################################
-gitlab-ci-multi-runner register \
+gitlab-runner register \
     --name "$RUNNER_NAME" \
     --executor "docker" \
-    --docker-image "alpine:3.5"
+    --shell "sh" \
+    --docker-image "alpine:3.5" \
+    --docker-volumes "/var/run/docker.sock:/var/run/docker.sock"
 
 ############################################################
 # Listen for Jobs
 ############################################################
 if [ $DEBUG == "true" ];
 then
-    gitlab-ci-multi-runner --debug run --user=$SYSTEM_USER --working-directory=$WORKING_DIRECTORY;
+    gitlab-runner --debug run --user=$SYSTEM_USER --working-directory=$WORKING_DIRECTORY;
 else
-    gitlab-ci-multi-runner run --user=$SYSTEM_USER --working-directory=$WORKING_DIRECTORY;
+    gitlab-runner run --user=$SYSTEM_USER --working-directory=$WORKING_DIRECTORY;
 fi
