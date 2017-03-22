@@ -10,12 +10,26 @@ trap "/sbin/exitpoint.sh" SIGHUP SIGINT SIGTERM
 ############################################################
 # Register Runner
 ############################################################
-gitlab-runner register \
-    --name "$RUNNER_NAME" \
-    --executor "docker" \
-    --shell "sh" \
-    --docker-image "alpine:3.5" \
-    --docker-volumes "/var/run/docker.sock:/var/run/docker.sock"
+if [ $CACHE_ON_HOST == "true" ];
+then
+    # Cache for NuGet/Composer
+    gitlab-runner register \
+        --name "$RUNNER_NAME" \
+        --executor "docker" \
+        --shell "sh" \
+        --docker-image "alpine:3.5" \
+        --docker-volumes "/var/run/docker.sock:/var/run/docker.sock" \
+        --docker-volumes "/var/cache/composer:/root/.composer/cache" \
+	    --docker-volumes "/var/cache/nuget:/root/.nuget/packages"
+else
+    # No Cache
+    gitlab-runner register \
+        --name "$RUNNER_NAME" \
+        --executor "docker" \
+        --shell "sh" \
+        --docker-image "alpine:3.5" \
+        --docker-volumes "/var/run/docker.sock:/var/run/docker.sock"
+fi
 
 ############################################################
 # Listen for Jobs

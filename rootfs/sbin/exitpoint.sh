@@ -5,4 +5,4 @@
 ############################################################
 
 # Unregister runner
-gitlab-ci-multi-runner unregister --name "${RUNNER_NAME}"
+gitlab-runner unregister --name "${RUNNER_NAME}"

@@ -56,6 +56,7 @@ CI_SERVER_URL | Your gitlab url + /ci | *required*
 REGISTRATION_TOKEN | Your gitlab runner registration token | *required*
 RUNNER_NAME | identifier for this instance | `aio-runner`
 DEBUG | true or false | `false`
+CACHE_ON_HOST | Caches composer/nuget/... packages on your host | `false`
 
 ## Shell Access
 If you are using Docker version 1.3.0 or higher you can access the shell of a running containers by using the following command. This may be useful for debugging and maintenance purposes.

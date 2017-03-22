@@ -18,7 +18,8 @@ ENV CI_SERVER_URL='http://YOUR_GITLAB_INSTANCE/ci' \
 	REGISTER_NON_INTERACTIVE=true \
 	SYSTEM_USER=gitlab-runner \
 	WORKING_DIRECTORY=/home/gitlab-runner \
-	DEBUG=false
+	DEBUG=false \
+	CACHE_ON_HOST=false
 
 ############################################################
 # Installation
