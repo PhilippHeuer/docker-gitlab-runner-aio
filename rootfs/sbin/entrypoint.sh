@@ -16,7 +16,6 @@ then
     gitlab-runner register \
         --name "$RUNNER_NAME" \
         --executor "docker" \
-        --shell "sh" \
         --docker-image "alpine:3.5" \
         --docker-volumes "/var/run/docker.sock:/var/run/docker.sock" \
         --docker-volumes "/var/cache/composer:/root/.composer/cache" \
@@ -27,7 +26,6 @@ else
     gitlab-runner register \
         --name "$RUNNER_NAME" \
         --executor "docker" \
-        --shell "sh" \
         --docker-image "alpine:3.5" \
         --docker-volumes "/var/run/docker.sock:/var/run/docker.sock" \
 		--docker-volumes "/etc/hosts:/etc/hosts:z"
