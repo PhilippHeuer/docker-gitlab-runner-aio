@@ -4,5 +4,5 @@
 # Docker Exitpoint
 ############################################################
 
-# Unregister runner
+# Unregister the runner
 gitlab-runner unregister --name "${RUNNER_NAME}"

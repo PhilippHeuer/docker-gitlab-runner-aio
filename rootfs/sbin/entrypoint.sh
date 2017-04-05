@@ -10,6 +10,7 @@ trap "/sbin/exitpoint.sh" SIGHUP SIGINT SIGTERM
 ############################################################
 # Register Runner
 ############################################################
+
 if [ $CACHE_ON_HOST == "true" ];
 then
     # Cache for NuGet/Composer
@@ -34,6 +35,7 @@ fi
 ############################################################
 # Listen for Jobs
 ############################################################
+
 if [ $DEBUG == "true" ];
 then
     gitlab-runner --debug run --user=$SYSTEM_USER --working-directory=$WORKING_DIRECTORY;
