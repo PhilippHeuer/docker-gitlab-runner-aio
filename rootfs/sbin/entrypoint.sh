@@ -21,7 +21,8 @@ then
         --docker-volumes "/var/run/docker.sock:/var/run/docker.sock" \
         --docker-volumes "/var/cache/composer:/root/.composer/cache" \
 	    --docker-volumes "/var/cache/nuget:/root/.nuget/packages" \
-		--docker-volumes "/etc/hosts:/etc/hosts:z"
+		--docker-volumes "/etc/hosts:/etc/hosts:z" \
+		--docker-volumes "/etc/ssl/certs:/etc/ssl/certs:z"
 else
     # No Cache
     gitlab-runner register \
@@ -29,7 +30,8 @@ else
         --executor "docker" \
         --docker-image "alpine:3.5" \
         --docker-volumes "/var/run/docker.sock:/var/run/docker.sock" \
-		--docker-volumes "/etc/hosts:/etc/hosts:z"
+		--docker-volumes "/etc/hosts:/etc/hosts:z" \
+		--docker-volumes "/etc/ssl/certs:/etc/ssl/certs:z"
 fi
 
 ############################################################
