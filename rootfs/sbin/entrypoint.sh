@@ -11,12 +11,13 @@ trap "/sbin/exitpoint.sh" SIGHUP SIGINT SIGTERM
 # Register Runner
 ############################################################
 
+CI_SERVER_URL=$CI_SERVER_URL
+REGISTRATION_TOKEN=$CI_SERVER_TOKEN
 gitlab-runner register \
     --name "$RUNNER_NAME" \
-	--url "$CI_SERVER_URL" \
-	--registration-token "$CI_SERVER_TOKEN" \
     --executor "docker" \
     --docker-image "alpine:3.5" \
+	--pre-clone-script "echo 'PrePull'" \
 	--docker-pull-policy "always" \
     --docker-volumes "/var/run/docker.sock:/var/run/docker.sock" \
     --docker-volumes "/etc/hosts:/etc/hosts:z"
