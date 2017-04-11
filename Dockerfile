@@ -12,14 +12,13 @@ MAINTAINER Philipp Heuer <docker@philippheuer.me>
 # Environment Configuration
 ############################################################
 
-ENV CI_SERVER_URL='http://YOUR_GITLAB_INSTANCE/ci' \
+ENV GITLAB_CI_URL='http://YOUR_GITLAB_INSTANCE/ci' \
+	GITLAB_CI_TOKEN='' \
     RUNNER_NAME='aio-runner' \
-	REGISTRATION_TOKEN='' \
 	REGISTER_NON_INTERACTIVE=true \
 	SYSTEM_USER=gitlab-runner \
 	WORKING_DIRECTORY=/home/gitlab-runner \
-	DEBUG=false \
-	CACHE_ON_HOST=false
+	DEBUG=false
 
 ############################################################
 # Installation
