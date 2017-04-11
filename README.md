@@ -20,12 +20,12 @@ This project provides you with a easy-to-use builder for all of your projects.
 ## Quick Start
 
 #### Run your GitLab runner like this:
-**One Time**
+**One Time (Testing) **
 ```bash
 docker run -it --rm \
--e CI_SERVER_URL=http://YOUR_GITLAB_INSTANCE/ci \
--e REGISTRATION_TOKEN=YOUR_GITLAB_RUNNER_TOKEN \
--v /var/run/docker.sock:/var/run/docker.sock \
+--env CI_SERVER_URL=http://YOUR_GITLAB_INSTANCE/ci \
+--env REGISTRATION_TOKEN=YOUR_GITLAB_RUNNER_TOKEN \
+--volume /var/run/docker.sock:/var/run/docker.sock \
 philippheuer/gitlab-runner-aio
 ```
 
@@ -33,9 +33,9 @@ philippheuer/gitlab-runner-aio
 ```bash
 docker run -d \
 --restart=unless-stopped \
--e CI_SERVER_URL=http://YOUR_GITLAB_INSTANCE/ci \
--e REGISTRATION_TOKEN=YOUR_GITLAB_RUNNER_TOKEN \
--v /var/run/docker.sock:/var/run/docker.sock \
+--env CI_SERVER_URL=http://YOUR_GITLAB_INSTANCE/ci \
+--env REGISTRATION_TOKEN=YOUR_GITLAB_RUNNER_TOKEN \
+--volume /var/run/docker.sock:/var/run/docker.sock \
 philippheuer/gitlab-runner-aio
 ```
 
@@ -48,7 +48,7 @@ Therefore we need to mount `/var/run/docker.sock` to access docker.
  - [X] Deregister runner on Shutddown (Hook to SIGHUP+SIGINT+SIGTERM)
 
 ## Environment Parameters
-Environment Parameters can be set using `-e KEY=VALUE`. This are all available options:
+Environment Parameters can be set using `--env KEY=VALUE`. This are all available options:
 
 Key | Value | Default Value
 --- | --- | ---
@@ -56,7 +56,6 @@ CI_SERVER_URL | Your gitlab url + /ci | *required*
 REGISTRATION_TOKEN | Your gitlab runner registration token | *required*
 RUNNER_NAME | identifier for this instance | `aio-runner`
 DEBUG | true or false | `false`
-CACHE_ON_HOST | Caches composer/nuget/... packages on your host | `false`
 
 ## Shell Access
 If you are using Docker version 1.3.0 or higher you can access the shell of a running containers by using the following command. This may be useful for debugging and maintenance purposes.

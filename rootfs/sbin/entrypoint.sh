@@ -11,27 +11,12 @@ trap "/sbin/exitpoint.sh" SIGHUP SIGINT SIGTERM
 # Register Runner
 ############################################################
 
-if [ $CACHE_ON_HOST == "true" ];
-then
-    # Cache for NuGet/Composer
-    gitlab-runner register \
-        --name "$RUNNER_NAME" \
-        --executor "docker" \
-        --docker-image "alpine:3.5" \
-        --docker-volumes "/var/run/docker.sock:/var/run/docker.sock" \
-        --docker-volumes "/var/cache/composer:/root/.composer/cache" \
-	    --docker-volumes "/var/cache/nuget:/root/.nuget/packages" \
-		--docker-volumes "/etc/hosts:/etc/hosts:z" \
-		--docker-volumes "/etc/ssl/certs:/etc/ssl/certs:z"
-else
-    # No Cache
-    gitlab-runner register \
-        --name "$RUNNER_NAME" \
-        --executor "docker" \
-        --docker-image "alpine:3.5" \
-        --docker-volumes "/var/run/docker.sock:/var/run/docker.sock" \
-		--docker-volumes "/etc/hosts:/etc/hosts:z" \
-		--docker-volumes "/etc/ssl/certs:/etc/ssl/certs:z"
+gitlab-runner register \
+    --name "$RUNNER_NAME" \
+    --executor "docker" \
+    --docker-image "alpine:3.5" \
+    --docker-volumes "/var/run/docker.sock:/var/run/docker.sock" \
+    --docker-volumes "/etc/hosts:/etc/hosts:z"
 fi
 
 ############################################################
