@@ -14,7 +14,7 @@ trap "/sbin/exitpoint.sh" SIGHUP SIGINT SIGTERM
 gitlab-runner register \
     --name "$RUNNER_NAME" \
 	--url "$CI_SERVER_URL" \
-	--token "$CI_SERVER_TOKEN" \
+	--registration-token "$CI_SERVER_TOKEN" \
     --executor "docker" \
     --docker-image "alpine:3.5" \
 	--docker-pull-policy "always" \
