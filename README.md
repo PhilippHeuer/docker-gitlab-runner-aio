@@ -23,8 +23,8 @@ This project provides you with a easy-to-use builder for all of your projects.
 **One Time (Testing) **
 ```bash
 docker run -it --rm \
---env GITLAB_CI_URL=http://YOUR_GITLAB_INSTANCE/ci \
---env GITLAB_CI_TOKEN=YOUR_GITLAB_RUNNER_TOKEN \
+--env CI_SERVER_URL=http://YOUR_GITLAB_INSTANCE/ci \
+--env CI_SERVER_TOKEN=YOUR_GITLAB_RUNNER_TOKEN \
 --volume /var/run/docker.sock:/var/run/docker.sock \
 philippheuer/gitlab-runner-aio
 ```
@@ -33,8 +33,8 @@ philippheuer/gitlab-runner-aio
 ```bash
 docker run -d \
 --restart=unless-stopped \
---env GITLAB_CI_URL=http://YOUR_GITLAB_INSTANCE/ci \
---env GITLAB_CI_TOKEN=YOUR_GITLAB_RUNNER_TOKEN \
+--env CI_SERVER_URL=http://YOUR_GITLAB_INSTANCE/ci \
+--env CI_SERVER_TOKEN=YOUR_GITLAB_RUNNER_TOKEN \
 --volume /var/run/docker.sock:/var/run/docker.sock \
 philippheuer/gitlab-runner-aio
 ```
@@ -52,8 +52,8 @@ Environment Parameters can be set using `--env KEY=VALUE`. This are all availabl
 
 Key | Value | Default Value
 --- | --- | ---
-GITLAB_CI_URL | Your gitlab url + /ci | *required*
-GITLAB_CI_TOKEN | Your gitlab runner registration token | *required*
+CI_SERVER_URL | Your gitlab url + /ci | *required*
+CI_SERVER_TOKEN | Your gitlab runner registration token | *required*
 RUNNER_NAME | identifier for this instance | `aio-runner`
 DEBUG | true or false | `false`
 
