@@ -11,10 +11,9 @@ trap "/sbin/exitpoint.sh" SIGHUP SIGINT SIGTERM
 # Register Runner
 ############################################################
 
-export REGISTRATION_TOKEN=$CI_SERVER_REGISTRATION_TOKEN
-
 gitlab-runner register \
     --name "$RUNNER_NAME" \
+	--registration-token "$CI_SERVER_REGISTRATION_TOKEN" \
     --executor "docker" \
     --docker-image "alpine:3.5" \
 	--pre-clone-script "echo 'PrePull'" \
