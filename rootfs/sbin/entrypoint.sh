@@ -27,9 +27,12 @@ gitlab-runner register \
 
 if [ -f "/etc/gitlab-runner/config.toml" ]; then
     # Registation: Success
+	echo "Registration success ..."
 else
     # Registation: Failed
+	echo "Registration failed. Exiting ..."
 	sleep 3
+	
     exit 1
 fi
 
