@@ -24,6 +24,18 @@ gitlab-runner register \
     --docker-volumes "/etc/hosts:/etc/hosts:z"
 
 ############################################################
+# Registration success?
+############################################################
+
+if [ -f "/etc/gitlab-runner/config.toml" ]; then
+    # Registation: Success
+else
+    # Registation: Failed
+	sleep 3
+    exit 1
+fi
+
+############################################################
 # Listen for Jobs
 ############################################################
 
