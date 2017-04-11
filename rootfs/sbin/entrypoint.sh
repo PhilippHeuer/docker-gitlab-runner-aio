@@ -17,7 +17,6 @@ gitlab-runner register \
     --docker-image "alpine:3.5" \
     --docker-volumes "/var/run/docker.sock:/var/run/docker.sock" \
     --docker-volumes "/etc/hosts:/etc/hosts:z"
-fi
 
 ############################################################
 # Listen for Jobs
