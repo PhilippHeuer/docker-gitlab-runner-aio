@@ -12,7 +12,7 @@ trap "/sbin/exitpoint.sh" SIGHUP SIGINT SIGTERM
 ############################################################
 
 CI_SERVER_URL=$CI_SERVER_URL
-REGISTRATION_TOKEN=$CI_SERVER_TOKEN
+REGISTRATION_TOKEN=$CI_SERVER_REGISTRATION_TOKEN
 gitlab-runner register \
     --name "$RUNNER_NAME" \
     --executor "docker" \

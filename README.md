@@ -24,7 +24,7 @@ This project provides you with a easy-to-use builder for all of your projects.
 ```bash
 docker run -it --rm \
 --env CI_SERVER_URL=http://YOUR_GITLAB_INSTANCE/ci \
---env CI_SERVER_TOKEN=YOUR_GITLAB_RUNNER_TOKEN \
+--env CI_SERVER_REGISTRATION_TOKEN=YOUR_GITLAB_RUNNER_TOKEN \
 --volume /var/run/docker.sock:/var/run/docker.sock \
 philippheuer/gitlab-runner-aio
 ```
@@ -34,7 +34,7 @@ philippheuer/gitlab-runner-aio
 docker run -d \
 --restart=unless-stopped \
 --env CI_SERVER_URL=http://YOUR_GITLAB_INSTANCE/ci \
---env CI_SERVER_TOKEN=YOUR_GITLAB_RUNNER_TOKEN \
+--env CI_SERVER_REGISTRATION_TOKEN=YOUR_GITLAB_RUNNER_TOKEN \
 --volume /var/run/docker.sock:/var/run/docker.sock \
 philippheuer/gitlab-runner-aio
 ```
