@@ -19,7 +19,8 @@ ENV REGISTER_NON_INTERACTIVE=true \
 	DOCKER_IMAGE='alpine' \
 	DOCKER_SERVICES='docker:dind' \
 	DOCKER_PULL_POLICY=always \
-	DOCKER_DISABLE_CACHE=true
+	DOCKER_DISABLE_CACHE=true \
+	RUNNER_ENV='GIT_SSL_NO_VERIFY=1'
 
 ############################################################
 # Installation
