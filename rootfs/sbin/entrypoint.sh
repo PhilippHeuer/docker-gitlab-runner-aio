@@ -12,13 +12,11 @@ trap "/sbin/exitpoint.sh" SIGHUP SIGINT SIGTERM
 ############################################################
 
 gitlab-runner register \
-    --name "gitlab-dynamic-runner" \
     --executor "docker" \
     --docker-image "alpine" \
 	--pre-clone-script "echo 'PrePull'" \
 	--docker-pull-policy "always" \
-    --docker-volumes "/var/run/docker.sock:/var/run/docker.sock" \
-    --docker-volumes "/etc/hosts:/etc/hosts:z"
+    --docker-volumes "/var/run/docker.sock:/var/run/docker.sock"
 
 ############################################################
 # Registration success?
