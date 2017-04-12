@@ -30,8 +30,7 @@ RUN echo "Installing Packages ..." &&\
 
 # CleanUp
 RUN echo "CleanUp ..." &&\
-	apk del .build-deps &&\
-	rm -rf /var/cache/apk/* /tmp/*
+	rm -rf /var/cache/apk/*
 
 ############################################################
 # Build Log
