@@ -12,7 +12,14 @@ MAINTAINER Philipp Heuer <docker@philippheuer.me>
 # Environment Configuration
 ############################################################
 
-
+# Setting some defaults
+ENV REGISTER_NON_INTERACTIVE=true \
+	RUNNER_EXECUTOR=docker \
+	DOCKER_PRIVILEGED=true \
+	DOCKER_IMAGE='alpine' \
+	DOCKER_SERVICES='docker:dind' \
+	DOCKER_PULL_POLICY=always \
+	DOCKER_DISABLE_CACHE=true
 
 ############################################################
 # Installation
