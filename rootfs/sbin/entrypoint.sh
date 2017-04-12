@@ -12,10 +12,9 @@ trap "/sbin/exitpoint.sh" SIGHUP SIGINT SIGTERM
 ############################################################
 
 gitlab-runner register \
-    --name "$RUNNER_NAME" \
-	--registration-token "$CI_SERVER_REGISTRATION_TOKEN" \
+    --name "gitlab-dynamic-runner" \
     --executor "docker" \
-    --docker-image "alpine:3.5" \
+    --docker-image "alpine" \
 	--pre-clone-script "echo 'PrePull'" \
 	--docker-pull-policy "always" \
     --docker-volumes "/var/run/docker.sock:/var/run/docker.sock" \
@@ -31,7 +30,6 @@ if [ -f "/etc/gitlab-runner/config.toml" ]; then
 else
     # Registation: Failed
 	echo "Registration failed. Exiting ..."
-	sleep 3
 	
     exit 1
 fi
