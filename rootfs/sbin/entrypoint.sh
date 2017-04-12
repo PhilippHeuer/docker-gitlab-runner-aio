@@ -37,7 +37,7 @@ fi
 ############################################################
 
 if [ $DEBUG == "true" ]; then
-    gitlab-runner --debug run --user=$SYSTEM_USER --working-directory=$WORKING_DIRECTORY;
+    gitlab-runner --debug run
 else
-    gitlab-runner run --user=$SYSTEM_USER --working-directory=$WORKING_DIRECTORY;
+    gitlab-runner run
 fi
