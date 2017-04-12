@@ -3,7 +3,7 @@
 ############################################################
 
 # Based on GitLab Runner
-FROM gitlab:gitlab-runner:alpine-v9.0.2
+FROM gitlab/gitlab-runner:alpine-v9.0.2
 
 # About the Maintainer
 MAINTAINER Philipp Heuer <docker@philippheuer.me>
